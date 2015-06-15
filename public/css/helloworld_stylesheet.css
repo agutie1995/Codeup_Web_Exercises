@@ -1,0 +1,35 @@
+body {
+        color: yellow;
+        background-color: blue;
+        font-family: "courgette", cursive;
+        background-image: url("/img/agloe,ny.jpg");
+        background-repeat: no-repeat;
+        background-position: 90% 27%
+    }
+
+h1, h3 {
+        color: rgb( 255, 176, 251);
+        text-decoration: underline;
+    } 
+
+ol{
+    list-style: upper-alpha
+}
+ul{ list-style: circle;}
+
+a:link {
+    color: rgb( 171, 255, 0);
+}
+
+a:visited {
+    color: rgb( 65, 255, 0);
+} 
+
+table, th, td {
+    border-color: yellow;
+}
+
+tbody {
+    text-align: center
+}
+
