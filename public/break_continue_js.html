@@ -28,9 +28,12 @@
             continue; 
         }
 
-        if (i != random) {
-            console.log(i);
+        if (i == random) {
+            console.log('Skipping randomly selected number: ' + i);
+            continue;
         }
+
+        console.log(i)
 
     }
 
