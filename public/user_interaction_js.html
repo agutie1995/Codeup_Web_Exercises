@@ -14,15 +14,12 @@
 
     <script type="text/javascript">
 
-    var response = prompt('What is your name?')
-
-    prompt('What is your name?');
 
     do {
-    quest = prompt ('What is your name?');
-    } while(!quest)
+    var response = prompt ('What is your name?');
+    } while(!response)
     
-    alert('Welcome!');
+    alert('Welcome, ' + response + '!');
 
     do {
     quest = confirm('Do you like pizza?');
