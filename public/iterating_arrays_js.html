@@ -13,11 +13,14 @@
     <script type="text/javascript">
     'use strict';
 
-    var names = ['Gatsby', 'Nick', 'Daisy', 'Tom'];
+    (function () {
+        var names = ['Gatsby', 'Nick', 'Daisy', 'Tom'];
 
-    names.forEach(function (element, index, array) {
-        console.log('The names at index ' + index + ' is:' + element);
-    })
+        names.forEach(function (element, index, array) {
+            console.log('The name at index ' + index + ' is:' + element);
+        });
+
+    })();
 
     //console.log('There are ' + names.length + ' names in the array.');
     //console.log('The first name is ' + names[0]);
