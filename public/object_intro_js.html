@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<title></title>
+
+</head>
+
+<body>
+	<script type="text/javascript">
+	"use strict";
+
+        (function (){
+        var person = new Object();
+
+        console.log(person);
+
+        person.firstName = "Alex ";
+        person.lastName = "Gutierrez";
+
+        person.sayHello = function () {
+            console.log("Hello, " + this.firstName + this.lastName);
+
+        }
+        person.sayHello();
+
+        var person2 = new Object();
+        person2.firstName = "Michael ";
+        person2.lastName = "Espinosa";
+
+        person2.sayHello = person.sayHello;
+
+        person2.sayHello();
+
+
+
+
+    })();
+
+	// todo:
+	// Create person object with firstName and lastName properties (set to your first and last name).
+	// var person = todo;
+
+	// todo:
+	// Add a say hello method to the person object that alerts hello using the firstName and lastName properties.
+
+	// Say hello from the person object.
+	// person.sayHello();
+
+
+	</script>
+
+
+
+</body>
+
+</html>
