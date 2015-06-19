@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <h1>BOOKS json</h1>
 
 	<script type="text/javascript">
 	"use strict";
@@ -17,8 +18,8 @@
         var books = [{
             title: 'The Fault in Our Stars',
             author: {
-                firstName: 'John',
-                lastName: 'Green'
+                'firstName': 'John',
+                'lastName': 'Green'
                 },
             
             }, {
@@ -59,18 +60,17 @@
 
 
         ];
-            console.log(books);
-
+        
+        console.log(books);
 
 
         books.forEach(function (element, index, array) {
             console.log("Book #" + index);
-            console.log("Title: " + title);
-            console.log("Author: " + firstName + lastName);
+            console.log("Title: " + element.title);
+            console.log("Author: " + element.author.firstName + " " + element.author.lastName);
+            console.log("---");
 
-    
-
-
+        });
 
 
 
@@ -94,6 +94,7 @@
         //console.log("Author: " + firstName + lastName)
         //console.log("---");
 		// end loop here
+    
     </script>
 
     
