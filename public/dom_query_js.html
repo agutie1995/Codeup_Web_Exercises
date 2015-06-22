@@ -40,11 +40,13 @@
             subHeader.style.color = '#00f';
 
             // TODO: Uncomment the next line and get all list items
-            var listItems = document.getElementsByTagName('li')
+            var listItems = document.getElementsByTagName('li');
 
             // TODO: Set text color on every other list item to grey
-            for (var i = 0; i < listItems.length; i=i+2) {
-                listItems[i].style['color'] = '#808080';
+            for (var i = 0; i < listItems.length; i++) {
+                if (i % 2 == 1) {
+                listItems[i].style.color = '#808080';
+                }
             
 
             // TODO: Set text color of li with dbid = 1 to blue
