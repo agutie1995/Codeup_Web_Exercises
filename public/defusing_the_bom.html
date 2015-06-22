@@ -11,8 +11,8 @@
 
     <script>
         var detonationTimer = 5;
-        var interval = 1000
-
+       
+       
         // TODO: This function needs to be called once every second
          function updateTimer () {
             if (detonationTimer == 0) {
@@ -34,7 +34,7 @@
         }
 
         updateTimer();
-        var intervalId = window.setInterval(updateTimer, interval);
+        var intervalId = setInterval(updateTimer, 1000);
 
         // Don't modify anything below this line!
         //
