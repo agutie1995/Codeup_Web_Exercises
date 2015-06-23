@@ -29,6 +29,8 @@
     <button id="list">Change List Item Text Color</button>
     <button id="para">Change Sub Paragraph Text</button>
 
+    <button id="nemo">Don't Click Me</button>
+
     <script>
         "use strict";
 
@@ -65,7 +67,7 @@
                     }
                 }
             };
-            document.getElementById('list').addEventListener('click', function (event) {changeList()}, false);
+            document.getElementById('list').addEventListener('click', changeList, false);
 
             // TODO: Uncomment the next line and get all elements with class name sub-paragraph
             var subParagraph = document.getElementsByClassName('sub-Paragraph')[0];
@@ -73,6 +75,11 @@
             // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
             document.getElementById('para').addEventListener('click', function (event) {subParagraph.innerHTML = 'Mission Accomplished'}, true);
             //subParagraph.innerHTML = 'Mission Accomplished!'
+
+            var listener = function (event) {
+                alert('You touched the butt-on.');
+            }
+            document.getElementById('nemo').addEventListener('click', listener, false);
     </script>
 
 
