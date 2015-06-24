@@ -78,9 +78,9 @@ divideBtn.addEventListener('click', function (event) {
 //clear display when 'C' is clicked on
 
 clearBtn.addEventListener('click', function(){
-	document.getElementById('leftTextBox').value = "";
-	document.getElementById('middleTextBox').value = "";
-	document.getElementById('rightTextBox').value = "";
+	leftDisplay.value = "";
+	middleDisplay.value = "";
+	rightDisplay.value = "";
 });
 
 //equal - display answer in leftTextBox
