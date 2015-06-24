@@ -1,10 +1,9 @@
 section {
     width: 400px;
-    background-color: #010A6C
 }
 div {
     width: 400px;
-    background-color: #000
+    background-color: navy
 }
 
 .textBoxes {
@@ -12,7 +11,8 @@ div {
     height: 85px;
     border: 1px;
     margin: 8px;
-    background-color: #d5d5d5;
+    background-color: #faf8d4;
+    font-size: 36px;
 }
 
 .buttons {
@@ -21,5 +21,5 @@ div {
     border: 1px;
     margin: 6px;
     font-size: 36px;
-    background-color: #FFF
+    background-color: #abfcac
 }
