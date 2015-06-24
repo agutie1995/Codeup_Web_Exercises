@@ -22,7 +22,10 @@ var leftDisplay = document.getElementById('leftTextBox');
 var middleDisplay = document.getElementById('middleTextBox');
 var rightDisplay = document.getElementById('rightTextBox');
 
+var inputVal = input.innerHTML
+
 //numbers in display
+oneBtn.addEventListener.(click, function (event) {leftDisplay.innerHTML = '1'}, false);
 
 //calc functions in display
 addBtn 
