@@ -1,5 +1,4 @@
 'use strict';
-console.log('hello world');
 
 //declare buttons
 var oneBtn = document.getElementById('numOne');
