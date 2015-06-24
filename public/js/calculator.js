@@ -88,19 +88,13 @@ clearBtn.addEventListener('click', function(){
 equalBtn.addEventListener('click', function equals () {
 	if (middleDisplay.value == "+"){
 		leftDisplay.value = parseInt(leftDisplay.value) + parseInt(rightDisplay.value);
-		middleDisplay.value = ""
-		rightDisplay.value = "";
 	} else if (middleDisplay.value == "-"){
 		leftDisplay.value = parseInt(leftDisplay.value) - parseInt(rightDisplay.value);
-		middleDisplay.value = ""
-		rightDisplay.value = "";
 	} else if (middleDisplay.value == "*"){
 		leftDisplay.value = parseInt(leftDisplay.value) * parseInt(rightDisplay.value);
-		middleDisplay.value = ""
-		rightDisplay.value = "";
 	} else if (middleDisplay.value == "/"){
 		leftDisplay.value = parseInt(leftDisplay.value) / parseInt(rightDisplay.value);
-		middleTextBox.value = ""
-		rightDisplay.value = "";
 	}
+	middleTextBox.value = "";
+	rightDisplay.value = "";
 });
