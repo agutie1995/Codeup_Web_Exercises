@@ -7,14 +7,14 @@ section {
 #container{
     width: 400px;
     background-color: #000080;
-    border: 1px solid navy;
+    border: 1px solid #000080;
     border-radius: 10px;
 }
 
 .textBoxes {
     width: 116px;
     height: 85px;
-    border: 1px solid navy;
+    border: 1px solid #fbeaff;
     border-radius: 10px;
     margin: 5px;
     background-color: #fbeaff;
@@ -24,7 +24,7 @@ section {
 .button {
     width: 85px;
     height: 85px;
-    border: 1px solid navy;
+    border: 1px solid #abfcac;
     border-radius: 10px;
     margin: 6px;
     font-size: 36px;
