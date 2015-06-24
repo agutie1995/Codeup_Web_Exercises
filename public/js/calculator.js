@@ -22,9 +22,6 @@ var leftDisplay = document.getElementById('leftTextBox');
 var middleDisplay = document.getElementById('middleTextBox');
 var rightDisplay = document.getElementById('rightTextBox');
 
-var firstNumber = leftDisplay.value;
-var secondNumber = rightDisplay.value;
-
 
 //get numbers in display
 
