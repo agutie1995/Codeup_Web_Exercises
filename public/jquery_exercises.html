@@ -9,9 +9,9 @@
 </head>
 
 <body>
-    <h1 class='codeup'>jQuery</h1>
+    <h1 id='mainHeader'>jQuery</h1>
 
-    <p id='codeup'>
+    <p id='para'>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -20,7 +20,7 @@
         proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
     <div id='bookLists'>
-        <h3 class='subHeader'>Books</h3>
+        <h3 id='subHeader'>Books</h3>
             <ul id='classicBooksList'>
                 <li >The Great Gatsby</li>
                 <li>Of Mice and Men</li>
@@ -37,13 +37,15 @@
     </div>
 
 
-
     <script src="/js/jquery.js"></script>
     <script>
     	'use strict';
 
     	$(document).ready(function(){
-    		$('.codeup').css('border', '1px dashed #00f');
+    		$('li').css('font-size', '20px');
+
+    		console.log($('h1').html());
+
     	});
 
     </script>
