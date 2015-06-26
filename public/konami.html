@@ -15,11 +15,19 @@
 <script src="/js/jquery.js"></script>
 <script>
 	'use strict';
+	
+	var konamiArray = ['38', '38', '40', '40', '37', '39', '37', '39', '66', '65', '13'];
 
-	$(document).ready(function(){
-		$().on('keydown', function(){
+	var input = [];
 
-		};
+	$(document).keydown(function(event){
+		input.push(event.keyCode);
+		if (input.length > konamiArray.length) {
+			input.shift();
+		}
+		if (input.toString() == konamiArray.toString()) {
+			alert('You have 30 new lives!');
+		}
 
 	});
 
