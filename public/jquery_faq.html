@@ -60,12 +60,12 @@
     <script>
         'use strict';
 
-        $('dd').addClass('invisible answers');
+        $('dd').addClass('invisible');
 
         $('div').ready(function(){
             $('#answersAppear').click(function(event){
                 event.preventDefault();
-                $('.answers').toggleClass('invisible');
+                $('dd').toggleClass('invisible');
             });
         });
 
