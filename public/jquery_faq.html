@@ -1,0 +1,71 @@
+<!DOCTYPE htlm>
+
+<html>
+
+<head>
+
+    <title>Attributes and CSS</title>
+
+    <style type="text/css">
+
+    .invisible {
+        display: none;
+    }
+
+    </style>
+
+</head>
+
+<body>
+
+    <dl>
+        <dt>Q1</dt>
+        <dd class='answers invisible'>A1</dd>
+    
+        <dt>Q2</dt>
+        <dd class='answers invisible'>A2</dd>
+
+        <dt>Q3</dt>
+        <dd class='answers invisible'>A3</dd>
+
+        <dt>Q4</dt>
+        <dd class='answers invisible'>A4</dd>
+
+        <dt>Q5</dt>
+        <dd class='answers invisible'>A5</dd>
+
+        <dt>Q6</dt>
+        <dd class='answers invisible'>A6</dd>
+
+        <dt>Q7</dt>
+        <dd class='answers invisible'>A7</dd>
+
+        <dt>Q8</dt>
+        <dd class='answers invisible'>A8</dd>
+
+        <dt>Q9</dt>
+        <dd class='answers invisible'>A9</dd>
+
+        <dt>Q10</dt>
+        <dd class='answers invisible'>A10</dd>
+
+    </dl>
+
+    <a href='#' id='answersAppear'>Click to view answers</a>
+
+        <script src="/js/jquery.js"></script>
+    <script>
+        'use strict';
+
+        $(document).ready(function(){
+            $('#answersAppear').click(function(event){
+                event.preventDefault();
+                $('.answers').toggleClass('invisible');
+            });
+        });
+
+    </script> 
+
+</body>
+
+</html>
