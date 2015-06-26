@@ -17,47 +17,52 @@
 </head>
 
 <body>
+    <div>
+        <dl>
+            <dt>Q1. How many employees are in the National Park Service?</dt>
+            <dd>Approximately 22,000 diverse professionals and 221,000 volunteers.</dd>
+        
+            <dt>Q2. How old is the National Park System?</dt>
+            <dd>The National Park Service was created by an act signed by President Woodrow Wilson on August 25, 1916.</dd>
 
-    <dl>
-        <dt>Q1</dt>
-        <dd class='answers invisible'>A1</dd>
-    
-        <dt>Q2</dt>
-        <dd class='answers invisible'>A2</dd>
+            <dt>Q3. What is the largest national park site?</dt>
+            <dd>Wrangell-St. Elias National Park and Preserve, AK, at 13.2 million acres</dd>
 
-        <dt>Q3</dt>
-        <dd class='answers invisible'>A3</dd>
+            <dt>Q4. What is the smallest national park site?</dt>
+            <dd>Thaddeus Kosciuszko National Memorial, PA, at 0.02 acres.</dd>
 
-        <dt>Q4</dt>
-        <dd class='answers invisible'>A4</dd>
+            <dt>Q5. How many people visit the national parks?</dt>
+            <dd>Total recreation visitors to the national parks in 2014: 292,800,082</dd>
 
-        <dt>Q5</dt>
-        <dd class='answers invisible'>A5</dd>
+            <dt>Q6. What is the most-visited national park?</dt>
+            <dd>Great Smoky Mountains with 10,099,276 visits in 2014</dd>
 
-        <dt>Q6</dt>
-        <dd class='answers invisible'>A6</dd>
+            <dt>Q7. What is the second most-visted national park?</dt>
+            <dd>Grand Canyon with 4,756,771 visits in 2014</dd>
 
-        <dt>Q7</dt>
-        <dd class='answers invisible'>A7</dd>
+            <dt>Q8. What government agency oversees the National Park Service?</dt>
+            <dd>The National Park Service is a bureau of the Department of the Interior.</dd>
 
-        <dt>Q8</dt>
-        <dd class='answers invisible'>A8</dd>
+            <dt>Q9. Who is the director of the National Park Service?</dt>
+            <dd>Jonathan B. Jarvis</dd>
 
-        <dt>Q9</dt>
-        <dd class='answers invisible'>A9</dd>
+            <dt>Q10. How many areas are in the National Park System?</dt>
+            <dd>The system includes 407 areas covering more than 84 million acres in every state, the District of Columbia, American Samoa, Guam, Puerto Rico, and the Virgin Islands.</dd>
 
-        <dt>Q10</dt>
-        <dd class='answers invisible'>A10</dd>
-
-    </dl>
+        </dl>
+    </div>
 
     <a href='#' id='answersAppear'>Click to view answers</a>
+
+    <p>For more FAQs please visit the <a href="http://www.nps.gov/aboutus/faqs.htm" target="_blank">National Park Service website</a>.</p>
 
         <script src="/js/jquery.js"></script>
     <script>
         'use strict';
 
-        $(document).ready(function(){
+        $('dd').addClass('invisible answers');
+
+        $('div').ready(function(){
             $('#answersAppear').click(function(event){
                 event.preventDefault();
                 $('.answers').toggleClass('invisible');
