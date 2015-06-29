@@ -8,10 +8,6 @@
 
     <style type="text/css">
 
-    .invisible {
-        display: none;
-    }
-
     a:link {
         color: #00f;
     }
@@ -121,7 +117,7 @@
         $(document).ready(function(){
             $('dt').click(function(event){
                 event.preventDefault();
-                $('dd').toggle('invisible');
+                $('dd').toggle();
             });
 
             $('li:first-child').css('font-weight', 'bold');
@@ -129,7 +125,7 @@
 
             $('h3').click(function(event){
                 event.preventDefault();
-                $(this).next().toggle('invisible');
+                $(this).next().toggle();
             });
         });
 
