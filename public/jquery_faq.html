@@ -117,7 +117,7 @@
         $(document).ready(function(){
             $('dt').click(function(event){
                 event.preventDefault();
-                $('dd').toggle();
+                $('dd').fadeToggle(1000);
             });
 
             $('li:first-child').css('font-weight', 'bold');
@@ -125,7 +125,7 @@
 
             $('h3').click(function(event){
                 event.preventDefault();
-                $(this).next().toggle();
+                $(this).next().fadeToggle(1000);
             });
         });
 
