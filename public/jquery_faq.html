@@ -131,9 +131,14 @@
 
             $('li').click(function(event){
                 event.preventDefault();
-                $(this).parent().toggleClass('invisible');
+                $(this).parent().addClass('invisible');
             });
 
+            $('h3').click(function(event){
+                event.preventDefault();
+                $(this).next().removeClass('invisible');
+
+            });
         });
 
     </script> 
