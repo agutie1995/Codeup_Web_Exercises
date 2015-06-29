@@ -35,7 +35,7 @@
 
     <div>
 
-        <h3>Great Smoky Mountains</h3>
+        <h3 id='greatSmokyMountainsToggle'>Great Smoky Mountains</h3>
         <ul id='greatSmokyMountains' >
 
             <li>10,099,276 visits in 2014</li>
@@ -48,7 +48,7 @@
 
         </ul>
 
-        <h3>Grand Canyon</h3>
+        <h3 id='grandCanyonToggle'>Grand Canyon</h3>
         <ul id='grandCanyon'>
 
             <li>4,756,771 visits in 2014</li>
@@ -61,7 +61,7 @@
 
         </ul>
 
-        <h3>Yosemite</h3>
+        <h3 id='yosemiteToggle'>Yosemite</h3>
         <ul id='yosemite'>
 
             <li>3,882,642 visits in 2014</li>
@@ -119,23 +119,17 @@
         'use strict';
 
         $(document).ready(function(){
-        $('dd').addClass('invisible');
-
             $('dt').click(function(event){
                 event.preventDefault();
-                $('dd').toggleClass('invisible');
+                $('dd').toggle('invisible');
             });
 
             $('li:first-child').css('font-weight', 'bold');
 
-            $('li').click(function(event){
-                event.preventDefault();
-                $(this).parent().addClass('invisible');
-            });
 
             $('h3').click(function(event){
                 event.preventDefault();
-                $(this).next().removeClass('invisible');
+                $(this).next().toggle('invisible');
             });
         });
 
