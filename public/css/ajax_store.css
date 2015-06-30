@@ -2,6 +2,11 @@ body {
     background-image: url('/img/hardwood_background.jpg')
 }
 
+div {
+    width: 800px;
+    margin: auto;
+}
+
 table, th, tr {
     width: 800px;
     color: white;
@@ -15,28 +20,21 @@ tr:hover {
     background-color: red;
 }
 
-div {
-    margin: 25px 250px;
-}
-
-button {
-    margin: 10px 0px;
-    outline: none;
-}
-
-tbody{
+tbody {
     text-align: center;
 }
 
-h1{
+h1 {
     color: white;
     text-align: center;
 }
 
-button{
+button {
     color: white;
     background-color: rgba(71, 43, 15, 0.33);
     border: 2px solid black;
     border-radius: 5px;
     padding: 3px;
+    outline: none;
+    margin: 5px 0px;
 }

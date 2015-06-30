@@ -52,5 +52,12 @@
             " outdoor"
         ],
         "price": 15
+    }, {
+        "title": "Nails",
+        "quantity": 30,
+        "categories": [
+            "tool"
+        ],
+        "price": 5
     }
 ]

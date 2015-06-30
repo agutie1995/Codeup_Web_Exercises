@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>Blog</title>
+
+    <link src="/bootstrap_css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/ajax_blog.css">
+    <link href='http://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+
+<div id='header'>
+        <h1 id='headline'>Header</h1>
+
+        <p id='headerParagraph'>
+        About this blog
+        </p>
+</div>
+
+<div id='posts'>
+</div>
+
+
+<script src='/js/jquery.js'></script>
+
+<script>
+
+'use strict';
+
+(function(){
+    var blogRequest = $.get('/data/blog.json');
+
+
+        blogRequest.always(function(){
+            console.log('Request sent');
+        });
+
+        blogRequest.fail(function(){
+            console.log('Request failed');
+        });
+
+        blogRequest.done(function(data){
+            console.log("Data has successfully returned form the server.");
+            $.each(data, function(i, data) {
+                $('#posts').append("<p>" + data.title + "</p>" + "<p>" + data.content + "</p>" + "<p>" + data.categories + "</p>" + "<p>" + data.date + "</p>");
+            });
+        });
+
+})();
+
+</script>
+
+</body>
+
+</html>
