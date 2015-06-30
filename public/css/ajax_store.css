@@ -2,7 +2,7 @@ body {
     background-image: url('/img/hardwood_background.jpg')
 }
 
-table, th, td {
+table, th, tr {
     width: 800px;
     color: white;
     border: 2px solid black;
@@ -11,12 +11,17 @@ table, th, td {
     padding: 3px;
 }
 
+tr:hover {
+    background-color: red;
+}
+
 div {
     margin: 25px 250px;
 }
 
 button {
     margin: 10px 0px;
+    outline: none;
 }
 
 tbody{
