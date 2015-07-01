@@ -20,7 +20,7 @@
     <script>
         'use strict';
 
-        (function(){
+        //(function(){
 
             var ajaxRequest = $.get("http://api.openweathermap.org/data/2.5/weather", {
                 APPID: "b54d0e81b7e778b1069994155f89db72",
@@ -28,7 +28,6 @@
                 units: "imperial"
             });
 
-            //var icon = $.get('http://openweathermap.org/img/w/04d.png')
 
             ajaxRequest.always(function(){
                 console.log('Request sent');
@@ -41,12 +40,27 @@
 
             ajaxRequest.done(function(data){
                 console.log('Request returned successfully');
-                console.log(data);
-                console.log(data.main);
-                //$('#weatherDisplay').append('<p>' + data.main + '</p>');
+                console.log(data); 
+
+            var displayContent = function(){
+                var icon = data.weather[0].icon;
+                var city = '<p>' + 'San Antonio' + '</p>';
+                var image  = '<p>' + "<img src = 'http://openweathermap.org/img/w/" + icon + ".png'>" + '</p>';
+                var lowTemp = '<p>' + 'Lo: ' + data.main.temp_min + '</p>';
+                var highTemp = '<p>' + 'High: ' + data.main.temp_max + '</p>';
+                var humidity = '<p>' + 'Humidity: ' + data.main.humidity + '</p>';
+                var pressure = '<p>' + 'Pressure: ' + data.main.pressure + '</p>';
+
+                var displayText = city + image + lowTemp + highTemp + humidity + pressure;
+                $('#weatherDisplay').append(displayText); 
+            };
+
+            displayContent();
+
             });
 
-        })();
+
+        //})();
     </script>
 
 </body>
