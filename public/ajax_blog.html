@@ -16,11 +16,13 @@
 <body>
 
 <div id='header'>
+    <div id='headerText'>
         <h1 id='headline'>Header</h1>
 
         <p id='headerParagraph'>
         About this blog
         </p>
+    </div>
 </div>
 
 <div id='posts'>
@@ -36,7 +38,6 @@
 (function(){
     var blogRequest = $.get('/data/blog.json');
 
-
         blogRequest.always(function(){
             console.log('Request sent');
         });
@@ -48,7 +49,7 @@
         blogRequest.done(function(data){
             console.log("Data has successfully returned form the server.");
             $.each(data, function(i, data) {
-                $('#posts').append("<p>" + data.title + "</p>" + "<p>" + data.content + "</p>" + "<p>" + data.categories + "</p>" + "<p>" + data.date + "</p>");
+                $('#posts').append("<h2>" + data.title + "</h2>" + "<p id='date'>" + data.date + "</p>" + "<p id='content'>" + data.content + "</p>" + "<p id='categories'>" + data.categories + "</p>" + "<br>" + "</br>");
             });
         });
 

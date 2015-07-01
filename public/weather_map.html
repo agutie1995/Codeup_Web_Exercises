@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>Weather Map API</title>
+
+    <link rel="stylesheet" href="/css/weather_map.css">
+
+</head>
+
+<body>
+    <h1>Weather Map</h1>
+
+    <div id='weatherDisplay'>
+    </div>
+
+    <script src="/js/jquery.js"></script>
+    <script>
+        'use strict';
+
+        (function(){
+
+            var ajaxRequest = $.get("http://api.openweathermap.org/data/2.5/weather", {
+                APPID: "b54d0e81b7e778b1069994155f89db72",
+                q:     "San Antonio, TX",
+                units: "imperial"
+            });
+
+            //var icon = $.get('http://openweathermap.org/img/w/04d.png')
+
+            ajaxRequest.always(function(){
+                console.log('Request sent');
+            });
+
+            ajaxRequest.fail(function(data, error){
+                console.log(error);
+                console.log(ajaxRequest.status);
+            });
+
+            ajaxRequest.done(function(data){
+                console.log('Request returned successfully');
+                console.log(data);
+                console.log(data.main);
+                //$('#weatherDisplay').append('<p>' + data.main + '</p>');
+            });
+
+        })();
+    </script>
+
+</body>
+
+</html>

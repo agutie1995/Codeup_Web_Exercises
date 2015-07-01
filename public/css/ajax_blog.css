@@ -1,18 +1,28 @@
 body{
-    background-image: url('/img/slate3.jpg');
+    background: url('/img/slate3.jpg') no-repeat top center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: 'Quicksand', sans-serif;
 }
 
 #posts {
     width: 800px;
     margin: auto;
     color: #fff;
-    font-family: 'Quicksand', sans-serif;
     background-color: rgba(89, 89, 89, 0.54);
 }
 
 #header {
-    width: 1200px;
-    height: 300px;
+    width: 1280px;
+    height: 611px;
     text-align: center;
-    background-image: url('/img/SAskyline.jpg');
+    background-image: url('/img/downtown.jpg');
+    background-repeat: no-repeat;
+}
+
+#date, #categories {
+    font-size: 12px;
 }
