@@ -4,65 +4,81 @@
 
 <head>
 
-    <title>Weather Map API</title>
-
     <link rel="stylesheet" href="/css/weather_map.css">
 
 </head>
 
 <body>
-    <h1>Weather Map</h1>
 
-    <div id='weatherDisplay'>
+    <div id='container'>
+        <div id='weatherDisplay'></div>
+
+        <p id='containerText'>Drag the marker to a new location!</p>
+
+        <div id="map-canvas"></div>
     </div>
 
     <script src="/js/jquery.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBl_KPjaB6zIRUV6wbvqU4zAuqjbj0Iaqk"></script>
+
     <script>
         'use strict';
 
-        //(function(){
-
-            var ajaxRequest = $.get("http://api.openweathermap.org/data/2.5/weather", {
-                APPID: "b54d0e81b7e778b1069994155f89db72",
-                q:     "San Antonio, TX",
-                units: "imperial"
-            });
+        var ajaxRequest = $.get("http://api.openweathermap.org/data/2.5/weather", {
+            APPID: "b54d0e81b7e778b1069994155f89db72",
+            q:     "San Antonio, TX",
+            units: "imperial"
+        });
 
 
-            ajaxRequest.always(function(){
-                console.log('Request sent');
-            });
+        ajaxRequest.always(function(){
+            console.log('Request sent');
+        });
 
-            ajaxRequest.fail(function(data, error){
-                console.log(error);
-                console.log(ajaxRequest.status);
-            });
+        ajaxRequest.fail(function(data, error){
+            console.log(error);
+            console.log(ajaxRequest.status);
+        });
 
-            ajaxRequest.done(function(data){
-                console.log('Request returned successfully');
-                console.log(data); 
+        ajaxRequest.done(function(data){
+            console.log('Request returned successfully');
+            console.log(data); 
 
-            var displayContent = function(){
-                var icon = data.weather[0].icon;
-                var city = '<p>' + 'San Antonio' + '</p>';
-                var image  = '<p>' + "<img src = 'http://openweathermap.org/img/w/" + icon + ".png'>" + '</p>';
-                var lowTemp = '<p>' + 'Lo: ' + data.main.temp_min + '</p>';
-                var highTemp = '<p>' + 'High: ' + data.main.temp_max + '</p>';
-                var humidity = '<p>' + 'Humidity: ' + data.main.humidity + '</p>';
-                var pressure = '<p>' + 'Pressure: ' + data.main.pressure + '</p>';
+        var displayContent = function(){
+            var icon = data.weather[0].icon;
+            var city = '<p>' + 'San Antonio' + '</p>';
+            var image  = '<p>' + "<img src = 'http://openweathermap.org/img/w/" + icon + ".png'>" + '</p>';
+            var lowTemp = '<p>' + 'Lo: ' + data.main.temp_min + '</p>';
+            var highTemp = '<p>' + 'High: ' + data.main.temp_max + '</p>';
+            var humidity = '<p>' + 'Humidity: ' + data.main.humidity + '</p>';
+            var pressure = '<p>' + 'Pressure: ' + data.main.pressure + '</p>';
 
-                var displayText = city + image + lowTemp + highTemp + humidity + pressure;
-                $('#weatherDisplay').append(displayText); 
-            };
+            var displayText = city + image + lowTemp + highTemp + humidity + pressure;
+            $('#weatherDisplay').append(displayText); 
+        };
 
-            displayContent();
+        displayContent();
 
-            });
+        });
 
+        var mapOptions = {
+            zoom: 4,
+            center: {lat: 37.6, lng: -95.665},
+        };
 
-        //})();
+        var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+        var marker = new google.maps.Marker({
+            position: {lat: 29.4814305, lng: -98.5144044},
+            map: map,
+            draggable:true,
+            title:"Drag me!"
+        });
+
+        //navigator.geolocation.getCurrentPosition(function(position){
+        //    getWeather(position.coords.latitude, position.coords.longitude);
+        //});
     </script>
-
 </body>
 
 </html>
