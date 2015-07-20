@@ -44,6 +44,6 @@ $randNoun = $nouns[mt_rand(0, count($nouns) -1)];
 </head>
 <body>
     <!-- <h1>What's your server name?</h1> -->
-    <h3><?php echo "$randAdj $randNoun" ?></h3>
+    <h3><? echo "$randAdj $randNoun"; ?></h3>
 </body>
 </html>

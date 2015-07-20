@@ -15,9 +15,9 @@ $favoriteThings = array('Starbucks', 'Netflix', 'Shoes', 'Chick-Fil-A', 'Books',
     <div>
         <h1>My Favorite Things</h1>
         <ol>
-        <?php foreach ($favoriteThings as $thing) { ?>
-            <li><?php echo $thing; ?></li>
-        <?php } ?>
+        <? foreach ($favoriteThings as $thing): ?>
+            <li><?= $thing; ?></li>
+        <? endforeach; ?>
 
         </ol>
     </div>
