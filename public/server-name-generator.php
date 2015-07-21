@@ -2,36 +2,55 @@
 //list of 10 nouns and 10 adjectives
 //seclect random word from each to creat one name
 
-$adjectives = array(
-    'Abominable',
-    'Bewitched',
-    'Zesty',
-    'Fuzzy',
-    'Suburban',
-    'Minty',
-    'Elastic',
-    'Revolving',
-    'Fiery',
-    'Tepid',
-    'Chocolate Covered'
-);
+function serverNameGenerator()
+{
+    $adjectives = array(
+        'Abominable',
+        'Bewitched',
+        'Zesty',
+        'Fuzzy',
+        'Suburban',
+        'Minty',
+        'Elastic',
+        'Revolving',
+        'Fiery',
+        'Tepid',
+        'Chocolate Covered'
+    );
 
-$nouns = array(
-    'Lightsaber',
-    'Penguins',
-    'Captain America',
-    'Gatsby',
-    'Jupiter',
-    'Oxford Comma',
-    'Snowman',
-    'Minions',
-    'Pluto',
-    'Samuel L. Jackson',
-    'Gandalf',
-);
+    $nouns = array(
+        'Lightsaber',
+        'Penguins',
+        'Captain America',
+        'Gatsby',
+        'Jupiter',
+        'Oxford Comma',
+        'Snowman',
+        'Minions',
+        'Pluto',
+        'Samuel L. Jackson',
+        'Gandalf'
+    );
+    
+    $randAdj = $adjectives[mt_rand(0, count($adjectives) -1)];
+    $randNoun = $nouns[mt_rand(0, count($nouns) -1)];
+    $serverName = "{$randAdj} {$randNoun}";
+    return $serverName;
+}
 
-$randAdj = $adjectives[mt_rand(0, count($adjectives) -1)];
-$randNoun = $nouns[mt_rand(0, count($nouns) -1)];
+function pageController()
+{
+    // Initialize an empty data array.
+    $data = array();
+
+    // Add data to be used in the html view.
+    $data['serverName'] = serverNameGenerator();
+
+
+    // Return the completed data array.
+    return $data;    
+}
+extract(pageController());
 
 ?>
 
@@ -43,7 +62,7 @@ $randNoun = $nouns[mt_rand(0, count($nouns) -1)];
     <link rel="stylesheet" href="/css/server-name-generator.css">
 </head>
 <body>
-    <!-- <h1>What's your server name?</h1> -->
-    <h3><?= "$randAdj $randNoun"; ?></h3>
+    <h1>SERVER NAME GENERATOR</h1>
+    <h3><?= $serverName; ?></h3>
 </body>
 </html>

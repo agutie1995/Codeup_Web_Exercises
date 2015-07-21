@@ -1,6 +1,18 @@
 <?php
 
-$favoriteThings = array('Starbucks', 'Netflix', 'Shoes', 'Chick-Fil-A', 'Books', 'Blue Bell Ice Cream');
+function pageController()
+{
+    // Initialize an empty data array.
+    $data[] = array();
+
+    // Add data to be used in the html view.
+    $data['favoriteThings'] = array('Starbucks', 'Netflix', 'Shoes', 'Chick-Fil-A', 'Books', 'Blue Bell Ice Cream');
+
+    // Return the completed data array.
+    return $data;    
+}
+
+extract(pageController());
 
 ?>
 
