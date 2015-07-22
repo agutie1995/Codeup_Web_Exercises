@@ -1,0 +1,27 @@
+body{
+    background-color: rgb(120, 205, 255);
+    text-align: center;
+}
+
+div {
+    width: 300px;
+    margin: auto;
+    border: 1px solid #A9A9A9;
+}
+
+input{
+    font-size: 18px;
+    margin: 10px;
+    width: 125px;
+    height: 25px;
+    border: 1px solid rgb(120, 205, 255);
+    border-radius: 5px;
+}
+
+button{
+    width: 75px;
+    height: 25px;
+    border: 1px solid rgb(120, 205, 255);
+    border-radius: 5px;
+    background-color: #fff;
+}

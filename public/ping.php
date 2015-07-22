@@ -12,8 +12,7 @@ function pageController()
         if ($_GET['score'] == 'hit'){
             $_GET['count']++;
             $data['points'] = $_GET['count'];
-        }
-        if ($_GET['score'] == 'miss'){
+        } else if ($_GET['score'] == 'miss'){
             //game over
             $data['points'] = 0;
             echo "GAME OVER";
