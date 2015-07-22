@@ -2,12 +2,12 @@ body{
     background-color: rgb(247, 244, 194);
 }
 h1 {
-    color: green;
+    color: rgb(0, 108, 0);
     text-align: center;   
 }
 
 ol {
-    color: green;
+    color: rgb(0, 108, 0);
     text-align: center;
     list-style-position: inside;
 }

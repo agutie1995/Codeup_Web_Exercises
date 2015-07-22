@@ -54,7 +54,6 @@ extract(pageController());
 
 ?>
 
-<!DOCTYPE html>
 <html>
 <head>
     <title>Sever Name Generator</title>

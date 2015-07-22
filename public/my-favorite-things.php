@@ -15,7 +15,6 @@ function pageController()
 extract(pageController());
 
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
