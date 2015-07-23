@@ -1,5 +1,7 @@
 <?php
 
+require 'function.php';
+
 function pageController()
 {
     // Initialize an empty data array.
@@ -8,7 +10,7 @@ function pageController()
     // Add data to be used in the html view.
     $data['points'] = 0;
 
-    if(isset($_GET['score'])){
+    if(inputHas('score')){
         if ($_GET['score'] == 'hit'){
             $_GET['count']++;
             $data['points'] = $_GET['count'];
