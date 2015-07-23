@@ -1,14 +1,15 @@
 <?php
 session_start();
 $sessionId = session_id();
-var_dump($sessionId);
+
+require 'function.php';
 
 $LOGGED_IN_USER = false;
 
-$username = isset($_POST['username']) ? strtolower($_POST['username']) == "guest" : '';
-$password = isset($_POST['password']) ? $_POST['password'] == "password": '';
+$username = inputHas('username') ? escape(strtolower($_POST['username'])) == "guest" : '';
+$password = inputHas('password') ? $_POST['password'] == "password": '';
 
-if (isset($_POST["username"]) && isset($_POST["password"])){
+if (inputHas('username') && inputHas('password')){
     if ($username && $password){
         $_SESSION["LOGGED_IN_USER"] = $_POST["username"];
         //Redirect browser
@@ -32,8 +33,8 @@ if (isset($_POST["username"]) && isset($_POST["password"])){
     <h2>Login</h2>
     <div>
         <form method="POST">
-            <input id="username" type="text" name="username" placeholder="Username" autofocus>
-            <input id="password" type="password" name="password" placeholder="Password">
+            <input id="username" type="text" name="username" placeholder="Username" autofocus><br>
+            <input id="password" type="password" name="password" placeholder="Password"><br>
             <button type="submit">Login</button>
         </form>
     </div>

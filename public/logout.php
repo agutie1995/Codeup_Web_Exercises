@@ -1,6 +1,9 @@
 <?php
+
+require 'function.php';
+
 session_start();
-if (isset($_GET['reset']) && $_GET['reset'] == 'true'){
+if (inputHas('reset') && $_GET['reset'] == 'true'){
     endSession();
     session_destroy();
     header("Location: http://codeup.dev/login.php");
@@ -25,8 +28,11 @@ function endSession()
 <html>
 <head>
     <title>Logout</title>
+
+    <link rel="stylesheet" href="/css/logout.css">
 </head>
 <body>
+
     <h2 align="center">You have been successfully logged out</h2>
     <a href="?reset=true">Login Again?</a>
 
