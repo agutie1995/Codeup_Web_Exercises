@@ -59,5 +59,12 @@
             "tool"
         ],
         "price": 5
-    }
+    }, {
+        "title": "Saw",
+        "quantity": 10,
+        "categories": [
+            "tool"
+        ],
+        "price": 15
+    }   
 ]
