@@ -1,6 +1,6 @@
 <?php
 
-require 'function.php';
+require '../Input.php';
 
 function pageController()
 {
@@ -10,11 +10,12 @@ function pageController()
     // Add data to be used in the html view.
     $data['points'] = 0;
 
-    if(inputHas('score')){
-        if ($_GET['score'] == 'hit'){
-            $_GET['count']++;
-            $data['points'] = $_GET['count'];
-        } else if ($_GET['score'] == 'miss'){
+    if(Input::has('score')){
+        if (Input::get('score') == 'hit'){
+            $count = Input::get('count');
+            $count++;
+            $data['points'] = $count;
+        } else if (Input::get('score') == 'miss'){
             //game over
             $data['points'] = 0;
             echo "GAME OVER";
