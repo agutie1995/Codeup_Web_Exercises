@@ -1,19 +1,19 @@
 <?php
-require 'function.php';
+require_once 'function.php';
 require_once '../Auth.php';
+require_once '../Input.php';
 
 session_start();
 $sessionId = session_id();
 
-Auth::check();
-// if (!empty($_SESSION['LOGGED_IN_USER'])) {
-//     $_SESSION['LOGGED_IN_USER'];
-// } else {
-//     header("Location: http://codeup.dev/login.php");
-//     exit();
-// }
+if (Auth::check()){
+    $_SESSION['LOGGED_IN_USER'];
+} else{
+	header("Location: http://codeup.dev/login.php");
+    exit();
+}
 
-if (inputHas('logout') && $_GET['logout'] == 'true'){
+if (Input::has('logout') && $_GET['logout'] == 'true'){
     header("Location: http://codeup.dev/logout.php");
     exit();	
 }

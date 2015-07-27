@@ -41,7 +41,3 @@ class Input
     ///////////////////////////////////////////////////////////////////////////
     private function __construct() {}
 }
-
-//Fill in the functions has() and get().
-//Use require_once to include your Input class in your ping.php and pong.php scripts.
-    //Replace your calls to inputHas() and inputGet() with your new static methods: Input::has() and Input::get().

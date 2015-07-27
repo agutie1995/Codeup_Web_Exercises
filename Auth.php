@@ -9,14 +9,16 @@ class Auth
     //Auth::attempt() will take in a $username and $password.
     public static function attempt($username, $password)
     {
-        if (Input::has('username') && Input::has('password')){
-            $_SESSION["LOGGED_IN_USER"] = $_POST["username"];
+        $auth = new Log();
+
+        if ($username == 'guest' && password_verify('password', self::$pass)){
+            $_SESSION["LOGGED_IN_USER"] = $username;
             // Use the Log class to log an info message: "User $username logged in."
-            Log::info("User $username logged in.");
+            $auth -> info("$username logged in.");
         } else {
             echo "Login Failed.";
             //If username or password are incorrect, log an error: "User $username failed to log in!".
-            Log::error("Incorrect username or password");
+            $auth->error("Incorrect username or password; failed to log in");
         }
     }
 
@@ -49,6 +51,7 @@ class Auth
                 $params["secure"], $params["httponly"]
             );
         }
+
+        session_destroy();
     }
 }
-
