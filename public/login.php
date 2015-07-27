@@ -1,24 +1,28 @@
 <?php
+require_once 'function.php';
+require_once '../Auth.php';
+
 session_start();
 $sessionId = session_id();
 
-require 'function.php';
-
 $LOGGED_IN_USER = false;
 
-$username = inputHas('username') ? escape(strtolower($_POST['username'])) == "guest" : '';
-$password = inputHas('password') ? $_POST['password'] == "password": '';
 
-if (inputHas('username') && inputHas('password')){
-    if ($username && $password){
-        $_SESSION["LOGGED_IN_USER"] = $_POST["username"];
-        //Redirect browser
-        header("Location: http://codeup.dev/authorized.php");
-        exit();
-    } else {
-        echo "Login Failed.";
-    }
-}
+$username = inputHas('username') ? escape(strtolower($_POST['username'])) == "guest" : '';
+$password = password_verify('password', Auth::$pass);
+
+Auth::attempt($username, $password);
+
+// if (inputHas('username') && inputHas('password')){
+//     if ($username && $password){
+//         $_SESSION["LOGGED_IN_USER"] = $_POST["username"];
+//         //Redirect browser
+//         header("Location: http://codeup.dev/authorized.php");
+//         exit();
+//     } else {
+//         echo "Login Failed.";
+//     }
+// }
 ?>
 
 <!DOCTYPE html>
