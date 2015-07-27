@@ -1,15 +1,17 @@
 <?php
+require 'function.php';
+require_once '../Auth.php';
+
 session_start();
 $sessionId = session_id();
 
-require 'function.php';
-
-if (!empty($_SESSION['LOGGED_IN_USER'])) {
-    $_SESSION['LOGGED_IN_USER'];
-} else {
-    header("Location: http://codeup.dev/login.php");
-    exit();
-}
+Auth::check();
+// if (!empty($_SESSION['LOGGED_IN_USER'])) {
+//     $_SESSION['LOGGED_IN_USER'];
+// } else {
+//     header("Location: http://codeup.dev/login.php");
+//     exit();
+// }
 
 if (inputHas('logout') && $_GET['logout'] == 'true'){
     header("Location: http://codeup.dev/logout.php");

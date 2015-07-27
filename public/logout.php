@@ -1,6 +1,6 @@
 <?php
-
 require 'function.php';
+require_once '../Auth.php';
 
 session_start();
 if (inputHas('reset') && $_GET['reset'] == 'true'){
