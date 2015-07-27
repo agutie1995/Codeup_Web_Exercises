@@ -1,5 +1,5 @@
 <?php
-require_once 'public/function.php';
+require_once 'Input.php';
 require_once 'Log.php';
 
 class Auth
@@ -9,22 +9,14 @@ class Auth
     //Auth::attempt() will take in a $username and $password.
     public static function attempt($username, $password)
     {
-        if (inputHas('username') && inputHas('password')){
-            //If $username is guest and $password matches hashed password, then set the LOGGED_IN_USER session variable as before.
-            if ($username && $password){
-                $_SESSION["LOGGED_IN_USER"] = $_POST["username"];
-                // Use the Log class to log an info message: "User $username logged in."
-                $auth = new Log();
-                $auth->info("User $username logged in.");
-                
-                //Redirect browser
-                header("Location: http://codeup.dev/authorized.php");
-                exit();
-            } else {
-                echo "Login Failed.";
+        if (Input::has('username') && Input::has('password')){
+            $_SESSION["LOGGED_IN_USER"] = $_POST["username"];
+            // Use the Log class to log an info message: "User $username logged in."
+            Log::info("User $username logged in.");
+        } else {
+            echo "Login Failed.";
             //If username or password are incorrect, log an error: "User $username failed to log in!".
-                $auth->error("Incorrect username or password");
-            }
+            Log::error("Incorrect username or password");
         }
     }
 
@@ -33,22 +25,30 @@ class Auth
     {
         if (!empty($_SESSION['LOGGED_IN_USER'])){
             return true;
-            $_SESSION['LOGGED_IN_USER'];
         } else{
             return false;
-            header("Location: http://codeup.dev/login.php");
-            exit();
         }
     }
 
+    // Auth::user() will return the username of the currently logged in user
     public static function user()
     {
-        //fill in function
+        if (isset($_SESSION['LOGGED_IN_USER'])){
+            return $username;
+        }
     }
 
+    // Auth::logout() will end the session, just like we did in the sessions exercise
     public static function logout()
     {
-        //fill in function
+        $_SESSION = array();
+        if (ini_get("session.use_cookies")) {
+            $params = session_get_cookie_params();
+            setcookie(session_name(), '', time() - 42000,
+                $params["path"], $params["domain"],
+                $params["secure"], $params["httponly"]
+            );
+        }
     }
 }
 
