@@ -7,7 +7,7 @@ session_start();
 $sessionId = session_id();
 
 if (Auth::check()){
-    $_SESSION['LOGGED_IN_USER'];
+    $username = Auth::user();	
 } else{
 	header("Location: http://codeup.dev/login.php");
     exit();
