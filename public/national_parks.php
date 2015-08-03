@@ -4,13 +4,17 @@ require_once '../db_connect.php';
 
 $limit = 4;
 
-$offset= isset($_GET['offset']) ? intval($_GET['offset']) : 0;
+$page = isset($_GET['page']) ? intval($_GET['page']) : 0;
+
+$offset = $page * 4;
 
 $stmt = $dbc->query("SELECT * FROM national_parks LIMIT $limit OFFSET $offset");
 
 $parks = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 $count= $dbc->query('SELECT count(*) FROM national_parks')->fetchColumn();
+
+$numOfPages = floor($count / $limit);
 ?>
 
 <!DOCTYPE html>
@@ -42,18 +46,17 @@ $count= $dbc->query('SELECT count(*) FROM national_parks')->fetchColumn();
     </table>
 
     <div id='links'>
-        <? if ($offset != 0):?>
-            <a href="?offset=<?=$offset-4;?>">Prev</a>
+        <? if ($page == 0): ?>
+            <a href="?page=<?= ($page + 1) ;?>">Next Page</a>
         <? endif; ?>
 
-        <a href="?offset=0">1</a>
+        <? if ($page < $numOfPages && $page != 0): ?>
+            <a href="?page=<?= ($page - 1) ?>">Previous Page</a>
+            <a href="?page=<?= ($page + 1) ?>">Next Page</a>
+        <? endif ?>
 
-        <a href="?offset=4">2</a>
-        
-        <a href="?offset=8">3</a>
-
-        <? if (($offset + 4)< $count): ?>
-            <a href="?offset=<?=$offset+4;?>">Next</a> 
+        <? if ($page == $numOfPages): ?>
+            <a href="?page=<?= ($page - 1) ;?>">Previous Page</a> 
         <? endif; ?>
     </div>
 
