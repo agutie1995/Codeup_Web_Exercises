@@ -1,0 +1,39 @@
+body {
+	background-color: #89A647;
+}
+
+h1 {
+	text-align: center;
+    color: #FFFDD6;
+}
+
+table {
+	margin: auto;
+	text-align: center;
+	background-color: #FFFDD6;
+	color: #8A3333;
+  	border: 1px solid #FFFDD6;
+  	border-radius: 5px;
+  	width: 600px;
+}
+
+th {
+	border: 1px solid #8A3333;
+	border-radius: 5px;
+}
+
+#links {
+	text-align: center;
+}
+
+a:link {
+    color: #FFFDD6;
+}
+
+a:visited {
+    color: #8A3333;
+}
+
+a:active {
+    color: #BD8C2F;
+}
