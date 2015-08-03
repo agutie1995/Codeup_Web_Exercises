@@ -55,6 +55,5 @@ $numOfPages = floor($count / $limit);
         <? endif; ?>
     </div>
 
-</script>
 </body>
 </html>
