@@ -46,17 +46,12 @@ $numOfPages = floor($count / $limit);
     </table>
 
     <div id='links'>
-        <? if ($page == 0): ?>
-            <a href="?page=<?= ($page + 1) ;?>">Next Page</a>
+        <? if ($page != 0): ?>
+            <a href="?page=<?= ($page - 1) ;?>">Previous Page</a> 
         <? endif; ?>
 
-        <? if ($page < $numOfPages && $page != 0): ?>
-            <a href="?page=<?= ($page - 1) ?>">Previous Page</a>
-            <a href="?page=<?= ($page + 1) ?>">Next Page</a>
-        <? endif ?>
-
-        <? if ($page == $numOfPages): ?>
-            <a href="?page=<?= ($page - 1) ;?>">Previous Page</a> 
+        <? if ($page < $numOfPages): ?>
+            <a href="?page=<?= ($page + 1) ;?>">Next Page</a>
         <? endif; ?>
     </div>
 
