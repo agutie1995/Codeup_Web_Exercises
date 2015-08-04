@@ -8,11 +8,16 @@ $page = isset($_GET['page']) ? intval($_GET['page']) : 0;
 
 $offset = $page * 4;
 
-$stmt = $dbc->query("SELECT * FROM national_parks LIMIT $limit OFFSET $offset");
+$stmt = $dbc->prepare('SELECT * FROM national_parks LIMIT :limit OFFSET :offset');
 
+//bind
+$stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+$stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
+
+$stmt->execute();
 $parks = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-$count= $dbc->query('SELECT count(*) FROM national_parks')->fetchColumn();
+$count = $dbc->query('SELECT count(*) FROM national_parks')->fetchColumn();
 
 $numOfPages = floor($count / $limit);
 ?>
@@ -33,25 +38,27 @@ $numOfPages = floor($count / $limit);
             <th>Location</th>
             <th>Date Established</th>
             <th>Area (in acres)</th>
+            <th>Description</th>
         </tr>
 
         <? foreach ($parks as $park): ?>
             <tr>
                 <td><?= $park['name']; ?></td>
                 <td><?= $park['location']; ?></td>
-                <td><?= $park['date_established']; ?></td>
-                <td><?= $park['area_in_acres']; ?></td>
+                <td><?= date_format(date_create($park['date_established']), 'F, j, Y'); ?></td>
+                <td><?= number_format($park['area_in_acres']); ?></td>
+                <td><?= $park['description']; ?></td>
             </tr>
         <? endforeach; ?>
     </table>
 
     <div id='links'>
         <? if ($page != 0): ?>
-            <a href="?page=<?= ($page - 1) ;?>">Previous Page</a> 
+            <a href="?page=<?= ($page - 1); ?>">Previous Page</a> 
         <? endif; ?>
 
         <? if ($page < $numOfPages): ?>
-            <a href="?page=<?= ($page + 1) ;?>">Next Page</a>
+            <a href="?page=<?= ($page + 1); ?>">Next Page</a>
         <? endif; ?>
     </div>
 
