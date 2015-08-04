@@ -27,8 +27,8 @@ if (!empty($_POST)){
 
     $stmt->bindValue(':name', escape(trim($_POST['name'])), PDO::PARAM_STR);
     $stmt->bindValue(':location',  escape(trim($_POST['location'])),  PDO::PARAM_STR);
-    $stmt->bindValue(':date_established',  escape(trim($_POST['date_established'])),  PDO::PARAM_STR);
-    $stmt->bindValue(':area_in_acres',  escape(trim($_POST['area_in_acres'])),  PDO::PARAM_STR);
+    $stmt->bindValue(':date_established', escape(trim($_POST['date_established'])),  PDO::PARAM_STR);
+    $stmt->bindValue(':area_in_acres',  str_replace(",", "", escape(trim($_POST['area_in_acres']))),  PDO::PARAM_STR);
     $stmt->bindValue(':description',  escape(trim($_POST['description'])),  PDO::PARAM_STR);
 
     $stmt->execute();
@@ -47,6 +47,7 @@ if (!empty($_POST)){
     <div id="container">
         <table>
             <tr>
+                <th>ID</th>
                 <th>Name</th>
                 <th>Location</th>
                 <th>Date Established</th>
@@ -56,6 +57,7 @@ if (!empty($_POST)){
 
             <? foreach ($parks as $park): ?>
                 <tr>
+                    <td><?= $park['id']; ?></td>
                     <td><?= $park['name']; ?></td>
                     <td><?= $park['location']; ?></td>
                     <td><?= date_format(date_create($park['date_established']), 'F, j, Y'); ?></td>
@@ -74,6 +76,7 @@ if (!empty($_POST)){
                 <a href="?page=<?= ($page + 1); ?>">Next Page</a>
             <? endif; ?>
         </div>
+
         <div id='form'>
             <form method="POST">
                 <label>Park Name:</label>
