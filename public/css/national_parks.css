@@ -31,21 +31,19 @@ th {
 }
 
 #form {
-	position: absolute;
 	margin: auto;
-	top: 900px;
-	right: 0;
-	bottom: 0;
-	left: 0;
+	padding: 10px;
 	width: 700px;
-	height: 400px;
+	height: 350px;
 	outline: none;
 	color: #8A3333;
 	font-size: 18px;
 	font-family: Arial;
 }
 
-input, select, textarea {
+input, select, textarea{
+	margin-left: auto;
+	margin-right: auto;
 	border: 1px solid #89A647;
 	border-radius: 5px;
 	height: 25px;
@@ -53,9 +51,16 @@ input, select, textarea {
 	font-size: 18px;
 	font-family: Arial;
 	background-color: #FFFDD6;
+	padding: 3px;
+}
+
+textarea {
+	width: 700px;
+	height: 200px;
 }
 
 button {
+	float: right;
 	width: 75px;
 	height: 30px;
 	background-color: #FFFDD6;
@@ -64,14 +69,12 @@ button {
 	border-radius: 5px;
 }
 
-#description {
-	width: 650px;
-	height: 200px;
-}
 
 #links {
 	text-align: center;
 	font-size: 18px;
+	font-family: Arial;
+	margin: 5px;
 }
 
 a:link {

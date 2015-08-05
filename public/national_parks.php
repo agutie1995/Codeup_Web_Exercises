@@ -97,62 +97,62 @@ $states = array(
 
 </head>
 <body>
-    <h1>National Parks</h1>
-    <div id="container">
-        <table>
-            <tr>
-                <th>Name</th>
-                <th>Location</th>
-                <th>Date Established</th>
-                <th>Area (in acres)</th>
-                <th>Description</th>
-            </tr>
-
-            <? foreach ($parks as $park): ?>
+    <div>
+        <div>
+            <h1>National Parks</h1>
+            <table>
                 <tr>
-                    <td><?= $park['name']; ?></td>
-                    <td><?= $park['location']; ?></td>
-                    <td><?= date_format(date_create($park['date_established']), 'F j, Y'); ?></td>
-                    <td><?= number_format($park['area_in_acres']); ?></td>
-                    <td><?= $park['description']; ?></td>
+                    <th>Name</th>
+                    <th>Location</th>
+                    <th>Date Established</th>
+                    <th>Area (in acres)</th>
+                    <th>Description</th>
                 </tr>
-            <? endforeach; ?>
-        </table>
 
-        <div id='links'>
-            <? if ($page != 1): ?>
-                <a href="?page=<?= ($page - 1); ?>">Previous Page</a> 
-            <? endif; ?>
+                <? foreach ($parks as $park): ?>
+                    <tr>
+                        <td><?= $park['name']; ?></td>
+                        <td><?= $park['location']; ?></td>
+                        <td><?= date_format(date_create($park['date_established']), 'F j, Y'); ?></td>
+                        <td><?= number_format($park['area_in_acres']); ?></td>
+                        <td><?= $park['description']; ?></td>
+                    </tr>
+                <? endforeach; ?>
+            </table>
+            <div id='links'>
+                <? if ($page != 1): ?>
+                    <a href="?page=<?= ($page - 1); ?>">Previous Page</a> 
+                <? endif; ?>
 
-            <? if ($page < $numOfPages): ?>
-                <a href="?page=<?= ($page + 1); ?>">Next Page</a>
-            <? endif; ?>
-        </div>
+                <? if ($page < $numOfPages): ?>
+                    <a href="?page=<?= ($page + 1); ?>">Next Page</a>
+                <? endif; ?>
+            </div>
+
+            <div id='form'>
+                <form method="POST">
+                    <label class="name">Park Name:</label>
+                    <input class="name" type="text" name="name" placeholder="Park Name">
+
+                    <label class="location">State: </label>
+                    <select class="location" name="location">
+                        <?foreach ($states as $state):?>
+                            <option><?= $state; ?></option>
+                        <? endforeach?>
+                    </select><br>
+
+                    <label class="date_established">Date Established: </label>
+                    <input class="date_established" type="date" name="date_established">
+
+                    <label class="area_in_acres">Area (in acres): </label>
+                    <input class="area_in_acres" type="text" name="area_in_acres" placeholder="Area in acres"><br>
+
+                    <label class="description">Description:</label><br>
+                    <textarea class="description" type="text" name="description" placeholder="Max: 500 characters"></textarea><br>
+                    <button id="submit" type="submit">Submit</button>
+                </form>
+            </div>
+        </div>  
     </div>
-
-    <div id='form'>
-        <form method="POST">
-            <label>Park Name:</label>
-            <input id="name" type="text" name="name" placeholder="Park Name">
-
-            <label>State: </label>
-            <select id="location" name="location">
-                <?foreach ($states as $state):?>
-                    <option><?= $state; ?></option>
-                <? endforeach?>
-            </select><br>
-
-            <label>Date Established: </label>
-            <input id="date_established" type="date" name="date_established">
-
-            <label>Area (in acres): </label>
-            <input id="area_in_acres" type="text" name="area_in_acres" placeholder="Area in acres"><br>
-
-            <label>Description: </label><br>
-            <textarea id="description" type="text" name="description" placeholder="Max: 500 characters"></textarea><br>
-            <button id="submit" type="submit">Submit</button>
-        </form>
-    </div>
-
 </body>
 </html>
