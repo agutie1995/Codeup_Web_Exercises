@@ -25,11 +25,11 @@ if (!empty($_POST)){
     $stmt = $dbc->prepare('INSERT INTO national_parks (name, location, date_established, area_in_acres, description)
             VALUES (:name, :location, :date_established, :area_in_acres, :description)');
 
-    $stmt->bindValue(':name', escape(trim($_POST['name'])), PDO::PARAM_STR);
-    $stmt->bindValue(':location',  escape(trim($_POST['location'])), PDO::PARAM_STR);
+    $stmt->bindValue(':name', escape(Input::getString('name')), PDO::PARAM_STR);
+    $stmt->bindValue(':location',  escape(Input::getString('location')), PDO::PARAM_STR);
     $stmt->bindValue(':date_established', escape(trim($_POST['date_established'])), PDO::PARAM_STR);
-    $stmt->bindValue(':area_in_acres',  str_replace(",", "", escape(trim($_POST['area_in_acres']))), PDO::PARAM_STR);
-    $stmt->bindValue(':description',  escape(trim($_POST['description'])), PDO::PARAM_STR);
+    $stmt->bindValue(':area_in_acres',  escape(Input::getNumber('area_in_acres')), PDO::PARAM_STR);
+    $stmt->bindValue(':description',  escape(Input::getString('description')), PDO::PARAM_STR);
 
     $stmt->execute();
 }

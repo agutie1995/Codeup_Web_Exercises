@@ -35,40 +35,49 @@ class Input
 
     // These methods should use the get() method internally to retrieve the value from $_POST or $_GET.
     // If the values does not exist, or match the expected type, throw an exception
-    public function getString($key)
+    public static function getString($key)
     {
-        $value = static::get($key);
+        $value = trim(static::get($key));
 
         if (!isset($value)) {
-            throw new Exception('{$key} is a required field!'); 
+            throw new Exception("$key is a required field!"); 
         }
 
-        if (!is_string($value)) {
-            throw new Exception('{$key} must be a string!'); 
+        if (!is_string($value) || is_numeric($value)) {
+            throw new Exception("$key must be a string!"); 
         }
 
-        $this->key = trim($key);
+        return $value;
     }
 
-    public function getNumber($key)
+    public static function getNumber($key)
     {
-        $value = static::get($key);
+        $value = trim(str_replace(',', '', static::get($key)));
 
         if (!isset($value)) {
-            throw new Exception('{$key} is a required field!');
+            throw new Exception("$key is a required field!");
         }
 
         if (!is_numeric($value)) {
-            throw new Exception('{$key} must be numeric!');
+            throw new Exception("$key must be numeric!");
         }
 
-        $this->key = trim($key);
+        return $value;
     }
 
-    public function getDate($key)
-    {
+    // public static function getDate($key)
+    // {
+    //     $value = static::get($key);
+    //     $format = 'Y-m-d';
 
-    }
+    //     $dateObject = DateTime::createFromFormat($format, $value);
+
+    //     if ($dateObject) {
+    //         return $dateObject->date;
+    //     } else {
+    //         throw new Exception('This must be a valid date');
+    //     }
+    // }
 
     ///////////////////////////////////////////////////////////////////////////
     //                      DO NOT EDIT ANYTHING BELOW!!                     //
