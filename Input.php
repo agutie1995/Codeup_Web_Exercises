@@ -33,6 +33,43 @@ class Input
         }
     }
 
+    // These methods should use the get() method internally to retrieve the value from $_POST or $_GET.
+    // If the values does not exist, or match the expected type, throw an exception
+    public function getString($key)
+    {
+        $value = static::get($key);
+
+        if (!isset($value)) {
+            throw new Exception('{$key} is a required field!'); 
+        }
+
+        if (!is_string($value)) {
+            throw new Exception('{$key} must be a string!'); 
+        }
+
+        $this->key = trim($key);
+    }
+
+    public function getNumber($key)
+    {
+        $value = static::get($key);
+
+        if (!isset($value)) {
+            throw new Exception('{$key} is a required field!');
+        }
+
+        if (!is_numeric($value)) {
+            throw new Exception('{$key} must be numeric!');
+        }
+
+        $this->key = trim($key);
+    }
+
+    public function getDate($key)
+    {
+
+    }
+
     ///////////////////////////////////////////////////////////////////////////
     //                      DO NOT EDIT ANYTHING BELOW!!                     //
     // The Input class should not ever be instantiated, so we prevent the    //
