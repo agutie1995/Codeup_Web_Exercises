@@ -22,62 +22,76 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBl_KPjaB6zIRUV6wbvqU4zAuqjbj0Iaqk"></script>
 
     <script>
-        'use strict';
+        (function(){
+            'use strict';
+            var ajaxRequest = $.get("http://api.openweathermap.org/data/2.5/weather", {
+                APPID: "b54d0e81b7e778b1069994155f89db72",
+                lat: "29.4167",
+                lon: "-98.5000",
+                units: "imperial"
+            });
 
-        var ajaxRequest = $.get("http://api.openweathermap.org/data/2.5/weather", {
-            APPID: "b54d0e81b7e778b1069994155f89db72",
-            q:     "San Antonio, TX",
-            units: "imperial"
-        });
+            var getInformation = function (){
+                ajaxRequest.always(function(){
+                    console.log('Request sent');
+                });
 
+                ajaxRequest.fail(function(data, error){
+                    console.log(error);
+                    console.log(ajaxRequest.status);
+                });
 
-        ajaxRequest.always(function(){
-            console.log('Request sent');
-        });
+                ajaxRequest.done(function(data){
+                    console.log('Request returned successfully');
+                    console.log(data); 
 
-        ajaxRequest.fail(function(data, error){
-            console.log(error);
-            console.log(ajaxRequest.status);
-        });
+                var displayContent = function(){
+                    var icon = data.weather[0].icon;
+                    var city = '<p>' + data.name + '</p>';
+                    var image  = '<p>' + "<img src = 'http://openweathermap.org/img/w/" + icon + ".png'>" + '</p>';
+                    var lowTemp = '<p>' + 'Lo: ' + data.main.temp_min + '</p>';
+                    var highTemp = '<p>' + 'High: ' + data.main.temp_max + '</p>';
+                    var humidity = '<p>' + 'Humidity: ' + data.main.humidity + '</p>';
+                    var pressure = '<p>' + 'Pressure: ' + data.main.pressure + '</p>';
 
-        ajaxRequest.done(function(data){
-            console.log('Request returned successfully');
-            console.log(data); 
+                    var displayText = city + image + lowTemp + highTemp + humidity + pressure;
+                    $('#weatherDisplay').append(displayText); 
+                };
 
-        var displayContent = function(){
-            var icon = data.weather[0].icon;
-            var city = '<p>' + 'San Antonio' + '</p>';
-            var image  = '<p>' + "<img src = 'http://openweathermap.org/img/w/" + icon + ".png'>" + '</p>';
-            var lowTemp = '<p>' + 'Lo: ' + data.main.temp_min + '</p>';
-            var highTemp = '<p>' + 'High: ' + data.main.temp_max + '</p>';
-            var humidity = '<p>' + 'Humidity: ' + data.main.humidity + '</p>';
-            var pressure = '<p>' + 'Pressure: ' + data.main.pressure + '</p>';
+                displayContent();
+                });
+            };
 
-            var displayText = city + image + lowTemp + highTemp + humidity + pressure;
-            $('#weatherDisplay').append(displayText); 
-        };
+            getInformation();
 
-        displayContent();
+            var mapOptions = {
+                zoom: 4,
+                center: {lat: 37.6, lng: -95.665},
+            };
 
-        });
+            var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 
-        var mapOptions = {
-            zoom: 4,
-            center: {lat: 37.6, lng: -95.665},
-        };
+            var marker = new google.maps.Marker({
+                position: {lat: 29.4167, lng: -98.5000},
+                map: map,
+                draggable: true,
+                title:"Drag me!",
+            });
 
-        var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+            google.maps.event.addListener(marker, 'dragend', function(event){
+                console.log(this.getPosition());
+                var weather = $.get("http://api.openweathermap.org/data/2.5/weather", {
+                    APPID: "b54d0e81b7e778b1069994155f89db72",
+                    lat: this.getPosition().lat(),
+                    lon: this.getPosition().lng(),
+                    units: "imperial"
+                });
 
-        var marker = new google.maps.Marker({
-            position: {lat: 29.4814305, lng: -98.5144044},
-            map: map,
-            draggable:true,
-            title:"Drag me!"
-        });
+                console.log('https://api.openweathermap.org/data/2.5/weather?lat=' + this.getPosition().lat() + '&lon=' + this.getPosition().lng() + '&cnt=3&mode=json&units+metric');
 
-        //navigator.geolocation.getCurrentPosition(function(position){
-        //    getWeather(position.coords.latitude, position.coords.longitude);
-        //});
+                weather.done(getInformation);
+            });
+        })();
     </script>
 </body>
 

@@ -1,0 +1,119 @@
+@import 'colors';
+
+body {
+    background-color: $gray-color;
+}
+
+@for $i from 1 through 9 {
+    .box-#{$i} {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@each $animal in puma, sea-slug, egret, salamander {
+    .#{$animal}-icon{
+        background-image: url('/img/#{$animal}.png');
+    }
+}
+
+$type: ocean;
+p {
+    @if $type == ocean {
+        color: blue;
+    } @elseif $type == matador {
+        color: red;
+    } @elseif $type == monster {
+        color: green;
+    } @else {
+        color: black;
+    }
+}
+
+/*.some-class, p, span {
+    display: block;
+}*/
+
+.some-class {
+    border: 1px solid #f00;
+    background-color: #fdd
+}
+
+.another-class {
+    @extend .some-class;
+    border-width: 3px;
+}
+
+main {
+    height: 200px;
+    
+    h1 {
+       color: #f00; 
+    }
+
+    p {
+        margin-bottom: 20px;
+    }
+
+    a {
+        color: #00f;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
+
+@mixin large-text {
+    font: {
+        family: Arial;
+        size: 20px;
+        weight: bold;
+    };
+}
+
+p {
+    @include large-text;
+}
+
+span {
+    @include large-text;
+}
+
+@mixin sexy-border($width, $color: #ff0) {
+    border: {
+        color: $color;
+        width: $width;
+        style: dashed;
+    };
+}
+
+.box{
+    @include sexy-border(4px);
+}
+
+$colors: (
+    default:    #E2E9F0,
+    primary:    #456DB8,
+    success:    #45B87B,
+    info:       #324f88,
+    warning:    #FB8217,
+    danger:     #FB4217
+);
+
+@each $key, $value in $colors {
+    .color-#{$key} {
+        color: $value;
+    }
+
+    .bg-color-#{$key} {
+        background-color: $value;
+    }
+}
+
+@function col($col) {
+    @return map-get($colors, '#{$col}');
+}
+
+.some-class {
+    color: col('primary');
+}

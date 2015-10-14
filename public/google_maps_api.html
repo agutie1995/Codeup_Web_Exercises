@@ -21,61 +21,61 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBl_KPjaB6zIRUV6wbvqU4zAuqjbj0Iaqk"></script>
 
     <script type="text/javascript">
-    'use strict';
+        'use strict';
 
-    var mapOptions = {
-        zoom: 12,
-    	center: {lat: 29.5694083, lng: -98.4305361}
-    };
+        var mapOptions = {
+            zoom: 12,
+        	center: {lat: 29.5694083, lng: -98.4305361}
+        };
 
-    var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+        var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 
-    //first restaurant
+        //first restaurant
 
-    var chickfila = {lat: 29.6103849, lng:-98.4699036};
+        var chickfila = {lat: 29.6103849, lng:-98.4699036};
 
-    var markerOne = new google.maps.Marker({
-        position: chickfila,
-        map: map
-    });
+        var markerOne = new google.maps.Marker({
+            position: chickfila,
+            map: map
+        });
 
-    var chickInfoWindow	= new google.maps.InfoWindow({
-        content: 'Chick-fil-A'
-    });
+        var chickInfoWindow	= new google.maps.InfoWindow({
+            content: 'Chick-fil-A'
+        });
 
-    chickInfoWindow.open(map,markerOne);
+        chickInfoWindow.open(map,markerOne);
 
-    //end of first restaurant
-    //start of second restaurant
+        //end of first restaurant
+        //start of second restaurant
 
-    var starbucks = {lat: 29.5998106, lng:-98.4186817};
+        var starbucks = {lat: 29.5998106, lng:-98.4186817};
 
-    var markerTwo = new google.maps.Marker({
-        position: starbucks,
-        map: map
-    });
+        var markerTwo = new google.maps.Marker({
+            position: starbucks,
+            map: map
+        });
 
-    var starInfoWindow	= new google.maps.InfoWindow({
-        content: 'Starbucks'
-    });
+        var starInfoWindow	= new google.maps.InfoWindow({
+            content: 'Starbucks'
+        });
 
-    starInfoWindow.open(map,markerTwo);
+        starInfoWindow.open(map,markerTwo);
 
-    //end of second restaurant
-    //start of third restaurant
+        //end of second restaurant
+        //start of third restaurant
 
-    var smokinJoes = {lat: 29.533891, lng:-98.378984};
+        var smokinJoes = {lat: 29.533891, lng:-98.378984};
 
-    var markerThree = new google.maps.Marker({
-        position: smokinJoes,
-        map: map
-    });
+        var markerThree = new google.maps.Marker({
+            position: smokinJoes,
+            map: map
+        });
 
-    var smokinInfoWindow = new google.maps.InfoWindow({
-        content: 'Smokin\' Joe\'s of Texas'
-    });
+        var smokinInfoWindow = new google.maps.InfoWindow({
+            content: 'Smokin\' Joe\'s of Texas'
+        });
 
-    smokinInfoWindow.open(map,markerThree);
+        smokinInfoWindow.open(map,markerThree);
     </script>
 
 

@@ -21,17 +21,53 @@ $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
 $stmt->execute();
 $parks = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+
+$errors = [];
 if (!empty($_POST)){
-    $stmt = $dbc->prepare('INSERT INTO national_parks (name, location, date_established, area_in_acres, description)
-            VALUES (:name, :location, :date_established, :area_in_acres, :description)');
 
-    $stmt->bindValue(':name', escape(Input::getString('name')), PDO::PARAM_STR);
-    $stmt->bindValue(':location',  escape(Input::getString('location')), PDO::PARAM_STR);
-    $stmt->bindValue(':date_established', escape(trim($_POST['date_established'])), PDO::PARAM_STR);
-    $stmt->bindValue(':area_in_acres',  escape(Input::getNumber('area_in_acres')), PDO::PARAM_STR);
-    $stmt->bindValue(':description',  escape(Input::getString('description')), PDO::PARAM_STR);
+    try {
+        $name = Input::getString('name');
+    } catch (Exception $e) {
+        $errors[] = $e->getMessage() . PHP_EOL;
+    }
 
-    $stmt->execute();
+    try {
+        $location = Input::getString('location');
+    } catch (Exception $e){
+        $erros[] = $e->getMessage() . PHP_EOL;
+    }
+
+    try {
+        $date_established = $_POST['date_established'];
+    } catch (Exception $e) {
+        $errors[] = $e->getMessage() . PHP_EOL;
+    }
+
+    try {
+        $area_in_acres = Input::getNumber('area_in_acres');
+    } catch (Exception $e) {
+        $errors[] = $e->getMessage() . PHP_EOL;
+    }
+
+    try {
+        $description = Input::getString('description');
+    } catch (Exception $e) {
+        $errors[] = $e->getMessage() . PHP_EOL;
+    }
+
+    if (empty($errors)){
+        $stmt = $dbc->prepare('INSERT INTO national_parks (name, location, date_established, area_in_acres, description)
+                VALUES (:name, :location, :date_established, :area_in_acres, :description)');
+
+        $stmt->bindValue(':name', $name, PDO::PARAM_STR);
+        $stmt->bindValue(':location', $location, PDO::PARAM_STR);
+        $stmt->bindValue(':date_established', $date_established, PDO::PARAM_STR);
+        $stmt->bindValue(':area_in_acres', $area_in_acres, PDO::PARAM_STR);
+        $stmt->bindValue(':description', $description, PDO::PARAM_STR);
+                
+        $stmt->execute();
+        $_POST = [];
+    }
 }
 
 $states = array(
@@ -129,26 +165,31 @@ $states = array(
                 <? endif; ?>
             </div>
 
-            <div id='form'>
-                <form method="POST">
-                    <label class="name">Park Name:</label>
-                    <input class="name" type="text" name="name" placeholder="Park Name">
+            <?php foreach ($errors as $error): ?>
+                <p id="error"><?= $error . PHP_EOL ;?></p>
+            <?php endforeach; ?>
 
-                    <label class="location">State: </label>
-                    <select class="location" name="location">
+            <div id='form'>
+                <p>* Required Fields</p>
+                <form method="POST">
+                    <label class="name">*Park Name:</label>
+                    <input value="<?= isset($_POST['name']); ?>" class="name" type="text" name="name" placeholder="Park Name">
+
+                    <label class="location">*Location: </label>
+                    <select value="<?= isset($_POST['location']); ?>" class="location" name="location">
                         <?foreach ($states as $state):?>
                             <option><?= $state; ?></option>
                         <? endforeach?>
                     </select><br>
 
-                    <label class="date_established">Date Established: </label>
-                    <input class="date_established" type="date" name="date_established">
+                    <label class="date_established">*Date Established: </label>
+                    <input value="<?= isset($_POST['date_established']); ?>" class="date_established" type="date" name="date_established">
 
-                    <label class="area_in_acres">Area (in acres): </label>
-                    <input class="area_in_acres" type="text" name="area_in_acres" placeholder="Area in acres"><br>
+                    <label class="area_in_acres">*Area (in acres): </label>
+                    <input value="<?= isset($_POST['area_in_acres']); ?>" class="area_in_acres" type="number" name="area_in_acres" placeholder="Area in acres"><br>
 
-                    <label class="description">Description:</label><br>
-                    <textarea class="description" type="text" name="description" placeholder="Max: 500 characters"></textarea><br>
+                    <label class="description">*Description:</label><br>
+                    <textarea value="<?= isset($_POST['description']); ?>" class="description" type="text" name="description" placeholder="Max: 500 characters"></textarea><br>
                     <button id="submit" type="submit">Submit</button>
                 </form>
             </div>

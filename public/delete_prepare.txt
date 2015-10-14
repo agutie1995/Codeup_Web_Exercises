@@ -1,0 +1,4 @@
+$deletePark = 'DELETE FROM national_parks WHERE id = :id';
+$deletestmt = $dbc->prepare($deletePark);
+$deletestmt->bindValue(':id', Input::get('id'), PDO::PARAM_INT);
+$deletestmt->execute();

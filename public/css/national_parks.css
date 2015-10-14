@@ -20,6 +20,11 @@ table {
 	font-family: Arial;
 }
 
+#error {
+	text-align: center;
+	color: red;
+}
+
 tr:hover {
     background-color: #FFFCC0;
 }
