@@ -35,3 +35,11 @@ section {
     background-color: #abfcac;
     outline: none;
 }
+
+.solarPanel {
+    border: 1px solid green;
+    background-color: #3C763D;
+    width: 84px;
+    height: 85px;
+    margin: 6px;
+}
