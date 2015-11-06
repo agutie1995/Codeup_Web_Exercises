@@ -1,0 +1,60 @@
+.game-board{
+    height: 900px;
+    width: 950px;
+}
+
+.card{
+    height: 225px;
+    width: 175px;
+    margin: 10px;
+    border-radius: 3%;
+    float: left;
+}
+
+.front-img{
+    height: 225px;
+    width: 175px;
+    /*border: 1px solid black;*/
+    margin: 10px; 
+    border-radius: 3%;
+    /*position: relative;*/
+    background-color: black; 
+}
+
+/*.frontleft{*/
+    /*height: 30px;*/
+    /*width: 30px;*/
+    /*border: 1px solid black;*/
+    /*margin-top: 2px;*/
+    /*margin-left: 2px; */
+    /*border-radius: 3%;*/
+    /*position: relative;*/
+    /*background-color: clear;*/
+/*}*/
+
+/*.frontright{*/
+    /*height: 30px;*/
+    /*width: 30px;*/
+    /*border: 1px solid black;*/
+    /*margin-left: 205px; */
+    /*border-radius: 3%;*/
+    /*position: relative;*/
+    /*background-color: clear;*/
+/*}*/
+
+.back{
+    /*background: url(img/memory_game/cast.jpg) no-repeat center;*/
+    background-size: cover;
+    border-radius: 3%;
+}
+
+.front{
+    background: url(/img/memory_game/cast.jpg) no-repeat center;
+    background-size: cover;
+    border-radius: 3%;
+}
+
+.col-md-3{
+    padding-right: 0px;
+    padding-left: 2px;
+}
