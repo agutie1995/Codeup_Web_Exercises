@@ -11,8 +11,8 @@ var sevenBtn = document.getElementById('numSeven');
 var eightBtn = document.getElementById('numEight');
 var	nineBtn = document.getElementById('numNine');
 var zeroBtn = document.getElementById('numZero');
-var addBtn = document.getElementById('add');
 var decimalBtn = document.getElementById('decimal');
+var addBtn = document.getElementById('add');
 var subtractBtn = document.getElementById('subtract');
 var multiplyBtn = document.getElementById('multiply');
 var divideBtn = document.getElementById('divide');
@@ -25,6 +25,7 @@ var rightDisplay = document.getElementById('rightTextBox');
 
 
 //get numbers in display
+
 function calcOperations (){
 	console.log(this);
 	if (middleDisplay.value == "") {
@@ -56,8 +57,8 @@ zeroBtn.addEventListener('click', calcOperations);
 
 decimalBtn.addEventListener('click', calcOperations);
 
-
 //calc functions in display
+
 addBtn.addEventListener('click', function (event) {
 	middleDisplay.value = '+';
 });
@@ -74,16 +75,16 @@ divideBtn.addEventListener('click', function (event) {
 	middleDisplay.value = '/';
 });
 
-
 //clear display when 'C' is clicked on
+
 clearBtn.addEventListener('click', function(){
 	leftDisplay.value = "";
 	middleDisplay.value = "";
 	rightDisplay.value = "";
 });
 
-
 //equal - display answer in leftTextBox
+
 equalBtn.addEventListener('click', function equals () {
 	if (middleDisplay.value == "+"){
 		leftDisplay.value = parseFloat(leftDisplay.value) + parseFloat(rightDisplay.value);
