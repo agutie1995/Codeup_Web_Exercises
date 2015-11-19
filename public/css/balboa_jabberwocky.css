@@ -1,0 +1,44 @@
+h1 {
+	font-size: 40px;
+}
+
+span {
+	font-size: 30px;
+	text-transform: uppercase;
+}
+
+p {
+	font-family: "Helvetica", sans-serif;
+	font-size: 24px;
+}
+
+a:link {
+	color: #000;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:visited {
+	color: black;
+}
+
+.george {
+	background-color: #f00;
+	text-decoration: line-through;
+}
+
+.para-one, .para-three {
+	text-indent: 135px;
+}
+
+.para-two {
+	text-align: right;
+}
+
+.read-more {
+	font-family: "Papyrus", fantasy;
+	font-size: 50px;
+}
