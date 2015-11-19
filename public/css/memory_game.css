@@ -1,11 +1,16 @@
+body {
+    height: auto;
+}
+
 .game-board{
-    height: 900px;
-    width: 950px;
+    width: 54%;
+    height: auto;
+    margin: auto;
 }
 
 .card{
-    height: 225px;
-    width: 175px;
+    height: 200px;
+    width: 150px;
     margin: 10px;
     border-radius: 3%;
     float: left;
@@ -42,19 +47,14 @@
     /*background-color: clear;*/
 /*}*/
 
-.back{
-    /*background: url(img/memory_game/cast.jpg) no-repeat center;*/
+/*.back{
+    background: url(img/memory_game/cast.jpg) no-repeat center;
     background-size: cover;
     border-radius: 3%;
-}
+}*/
 
 .front{
     background: url(/img/memory_game/cast.jpg) no-repeat center;
     background-size: cover;
     border-radius: 3%;
-}
-
-.col-md-3{
-    padding-right: 0px;
-    padding-left: 2px;
 }
