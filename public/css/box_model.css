@@ -1,5 +1,6 @@
 main{
     font-weight: bold;
+    color: #fff;
 
 }
 
@@ -7,9 +8,8 @@ div {
     width: 150px;
     height: 50px;
     border: 1px solid black;
-    margin-bottom: 10px;
-    padding-left: 6px
-
+    margin: 10px 0;
+    padding: 10px
 }
 
 #red {
@@ -43,7 +43,7 @@ div {
 
 
 #pink{
-    background-color: pink;
+    background-color: rgb(202, 140, 239);
     margin-left: 150px
 
 }
