@@ -12,9 +12,10 @@ p {
 	font-size: 24px;
 }
 
-a:link {
+a {
 	color: #000;
 	text-decoration: none;
+	margin: 0;
 }
 
 a:hover {
@@ -30,12 +31,13 @@ a:visited {
 	text-decoration: line-through;
 }
 
-.para-one, .para-three {
+.para-odd {
 	text-indent: 135px;
 }
 
-.para-two {
+.para-even {
 	text-align: right;
+	margin: 0;
 }
 
 .read-more {
