@@ -28,7 +28,7 @@ aside {
 	left: 0;
 }
 
-footer{
+footer {
 	height: 100px;
 	width: 100%;
 	position: absolute;
@@ -41,12 +41,25 @@ ul {
 	list-style: none;
 }
 
-
 /*Nav================================*/
-.logo{
+.logo {
 	margin-left: 15px;
 }
 
+.nav-list {
+	text-align: center
+}
+
+.nav-list-item {
+	display: inline-block;
+	text-align: center;
+}
+
+.nav-link {
+	color: #FF0;
+	text-decoration: none;
+	padding: 10px;
+}
 /*Sidebar============================*/
 .sidebar-link{	
 	color: #3AB707;
@@ -55,7 +68,7 @@ ul {
 }
 
 /*Main Content=======================*/
-.main-content{
+.main-content {
 	width: 75%;
 	float: right;
 	padding: 20px;
@@ -63,25 +76,21 @@ ul {
 	top: 125px;
 }
 
-.deathstar-img{
+.deathstar-img {
 	margin: 20px;
 	float: left;
 }
 
 /*Footer=============================*/
-.footer-list {
+.wrapper {
 	text-align: center
 }
 
-.footer-list-item {
-	display: inline-block;
-	text-align: center;
-}
-
-.footer-link {
-	color: #FF0;
-	text-decoration: none;
-	padding: 10px;
+.social {
+ 	margin: 0 10px;
+ 	font-size: 40px;
+  	color: #FF0;
+  	text-decoration: none;
 }
 
 .copyright {
