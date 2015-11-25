@@ -1,10 +1,12 @@
 body {
 	background-color: #E1E1E1;
+	font-family: 'Karla', sans-serif;
 }
 
 nav, footer {
 	background-color: #000;
 	margin: 0;
+	font-weight: 700;
 }
 
 nav {
@@ -21,9 +23,10 @@ aside {
 	height: 405px;
 	width: 20%;
 	border-radius: 3px;
-	padding: 20px;
 	margin-right: 20px;
 	margin-top: 67px;
+	font-weight: 700;
+	padding: 20px;
 	position: absolute;
 	left: 0;
 }
