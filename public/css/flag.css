@@ -9,7 +9,7 @@
 	position: absolute;
 	width: 370px;
 	height: 235px;
-	background-color: navy;
+	background-color: #002868;
 	padding: 5px;
 	z-index: 1;
 }
@@ -56,9 +56,9 @@
 }
 
 .red {
-	background-color: red;
+	background-color: #BF0A30;
 }
 
 .white {
-	background-color: white;
+	background-color: #FFF;
 }
