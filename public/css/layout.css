@@ -13,9 +13,9 @@ nav {
 	height: 75px;
 	width: 100%;
 	position: absolute;
+	z-index: 0;
 	top: 0;
 	left: 0;
-	/*margin-bottom: 10px;*/
 }
 
 aside {
@@ -50,7 +50,11 @@ ul {
 }
 
 .nav-list {
-	text-align: center
+	text-align: center;
+	position: relative;
+	z-index: 1;
+	width: 650px;
+	margin: 25px auto;
 }
 
 .nav-list-item {
