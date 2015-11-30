@@ -1,18 +1,64 @@
-#flag{
+#flag {
+	width: 950px;
+	height: 455px;
 	border: 1px solid black;
 }
 
-#fieldOfBlue{
-	width: 300px;
-	height: 200px;
-    background-color: navy;
+/*Field Of Blue================================*/
+.field-of-blue {
+	position: absolute;
+	width: 370px;
+	height: 235px;
+	background-color: navy;
+	padding: 5px;
+	z-index: 1;
+}
+
+.star {
+	color: #fff;
+	font-size: 21px;
+	margin: 0 26.5px;
+	float: left;
+	text-align: center;
+}
+
+.star-six-first {
+	margin-left: 0;
+}
+
+.star-six-last, .star-five-last {
+	margin-right: 0;
+}
+
+.star-five-first {
+	margin-left: 32px
 }
 
 .row {
-	width: 300px;
-	height: 200px;
+	width: 370px;
+	height: 25px;
 }
 
-.star span{
-    color: #fff;
+.row:first-child {
+	margin-top: 5px;
+}
+
+/*Strips=======================================*/
+#thirteen-colonies {
+	position: relative;
+	top: 0;
+	z-index: -1;
+}
+
+.stripe {
+	height: 35px;
+	width: 950px;	
+}
+
+.red {
+	background-color: red;
+}
+
+.white {
+	background-color: white;
 }
