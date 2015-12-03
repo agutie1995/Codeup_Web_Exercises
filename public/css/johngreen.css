@@ -1,0 +1,92 @@
+body {
+	font-family: Sans-serif;
+	box-sizing: border-box;
+}
+
+/*==================
+	Grid System
+==================*/
+.container {
+    margin: 0 auto;
+    width: 95%;
+    max-width: 1200px;
+}
+
+.column {
+    float: left;
+    /*padding: 10px;*/
+}
+
+.column.three-fourths {
+	width: 75%
+}
+
+.column.one-fourth {
+	width: 25%;
+}
+
+.row {
+    width: 100%;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/*=================
+		Nav
+=================*/
+.nav-list {
+	list-style: none;
+	display: inline;
+}
+
+.nav-list-item {
+	display: inline-block;
+	text-align: center;
+	margin: auto 10px;
+}
+
+/*=================
+		Main
+=================*/
+.box {
+	border: 2px solid #000;
+}
+
+.pic-bg {
+	/*margin: auto;*/
+	height: 150px;
+	background-image: url('/img/john-peanutbutter.png');
+}
+
+.form-head {
+	text-align: center;
+	color: #fff;
+}
+
+form {
+	width: 45%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+input, button, select {
+	margin: auto 15px;
+	border: 2px solid #000;
+}
+input{
+	height: 15px;
+}
+
+button {
+	height: 20px;
+	width: 60px;
+	background-color: #fff;
+	box-shadow: 4px 2px 1px #000;
+}
+/*=================
+	   Footer
+=================*/
